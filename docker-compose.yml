@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  webcal-mobile-tecnico:
+    build: .
+    volumes:
+      - ./react-native-src:/var/react-native-src
+    ports:
+      - 19000:19000
+      - 19001:19001
+      - 19002:19002
+      - 8081:8081
