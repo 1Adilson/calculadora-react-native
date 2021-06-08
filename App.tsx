@@ -1,21 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import React from 'react';
-import {ViewYellow, Title, InputCal, ButtonCal } from "./style"
+import {ViewYellow, InputCal, ButtonCal, Num,NumEQual, ButtonEqual, Title} from "./style"
 import { Formik } from 'formik';
-import { Alert, Text } from 'react-native';
 import { Col, Row, Grid } from "react-native-easy-grid";
-import { View } from 'native-base';
+import { View, Container} from 'native-base';
 
 export default function App() {
   return (
     <ViewYellow style={{paddingTop: Constants.statusBarHeight}}>
-      <StatusBar style="auto" />
-      <Title>CALCULADORA</Title>
-     
+      <StatusBar  style="auto" />
+      <Title>NATIVE CALCULATOR</Title>
       <Formik
         initialValues={{
-          firstName: 0,
+          firstName: "0",
         }}
         onSubmit={(
           values: any,
@@ -24,67 +22,73 @@ export default function App() {
           }
         }
         >
-        {props => (
+        {({ values }: any) =>{
+          console.log("values", values);
+          
+        return (
           <View> 
-          <InputCal/>
+          <InputCal disabled={true} value={values.firstName}/>
           <Grid>
-          <Col style={{ height: 400 }}>
+          <Col style={{ width:90,height: 400 }}>
             <Row style={{ height: 100 }}>
-              <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>7</Text></ButtonCal>
+              <ButtonCal><Num>7</Num></ButtonCal>
             </Row>
             <Row style={{ height: 100 }}>
-              <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>4</Text></ButtonCal>
+              <ButtonCal><Num>4</Num></ButtonCal>
             </Row>
             <Row style={{  height: 100 }}>
-              <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>1</Text></ButtonCal>
+              <ButtonCal><Num>1</Num></ButtonCal>
             </Row>
           </Col>
 
-          <Col style={{  height: 400 }}>
+          <Col style={{  width:90,height: 400 }}>
             <Row style={{ height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>8</Text></ButtonCal>
+            <ButtonCal><Num>8</Num></ButtonCal>
             </Row>
             <Row style={{ height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>5</Text></ButtonCal>
+            <ButtonCal><Num>5</Num></ButtonCal>
             </Row>
             <Row style={{height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>2</Text></ButtonCal>
+            <ButtonCal><Num>2</Num></ButtonCal>
             </Row>
             <Row style={{ height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>0</Text></ButtonCal>
+            <ButtonCal><Num>0</Num></ButtonCal>
             </Row>
           </Col>
 
-          <Col style={{ height: 400 }}>
+          <Col style={{ width:100, height: 400 }}>
             <Row style={{height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>9</Text></ButtonCal>
+            <ButtonCal><Num>9</Num></ButtonCal>
             </Row>
             <Row style={{ height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>6</Text></ButtonCal>
+            <ButtonCal><Num>6</Num></ButtonCal>
             </Row>
             <Row style={{  height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>3</Text></ButtonCal>
+            <ButtonCal><Num>3</Num></ButtonCal>
             </Row>
             <Row style={{  height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>,</Text></ButtonCal>
+            <ButtonCal><Num>,</Num></ButtonCal>
             </Row>
           </Col>
 
-          <Col style={{ height: 400 }}>
+          <Col style={{ width:100, height: 400 }}>
             <Row style={{height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>x</Text></ButtonCal>
+            <ButtonCal><Num>x</Num></ButtonCal>
             </Row>
             <Row style={{ height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>-</Text></ButtonCal>
+            <ButtonCal><Num>-</Num></ButtonCal>
+            </Row>
+            <Row style={{ width:10, height: 100 }}>
+            <ButtonCal><Num>+</Num></ButtonCal>
             </Row>
             <Row style={{  height: 100 }}>
-            <ButtonCal><Text style={{color: "#000", textAlign: "center"}}>+</Text></ButtonCal>
+            <ButtonEqual><NumEQual>=</NumEQual></ButtonEqual>
             </Row>
           </Col>
           
         </Grid>
           </View>
-        )}
+        )}}
       </Formik>
     </ViewYellow>
   );
