@@ -1,19 +1,18 @@
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import React from 'react';
-import {ViewYellow, InputCal, ButtonCal, Num,NumEQual, ButtonEqual, Title} from "./style"
+import {ViewYellow, InputCal, ButtonCal, Num,NumEQual, ButtonEqual,Opera, Title, Row, Col} from "./style"
 import { Formik } from 'formik';
-import { Col, Row, Grid } from "react-native-easy-grid";
-import { View, Container} from 'native-base';
+import { View } from 'native-base';
+
 
 export default function App() {
   return (
     <ViewYellow style={{paddingTop: Constants.statusBarHeight}}>
       <StatusBar  style="auto" />
-      <Title>NATIVE CALCULATOR</Title>
       <Formik
         initialValues={{
-          firstName: "0",
+          firstName: "",
         }}
         onSubmit={(
           values: any,
@@ -22,71 +21,93 @@ export default function App() {
           }
         }
         >
-        {({ values }: any) =>{
+        {({ values,  setFieldValue}: any) =>{
           console.log("values", values);
           
         return (
-          <View> 
-          <InputCal disabled={true} value={values.firstName}/>
-          <Grid>
-          <Col style={{ width:90,height: 400 }}>
-            <Row style={{ height: 100 }}>
-              <ButtonCal><Num>7</Num></ButtonCal>
+          <View style={{flex: 1}}>
+            <InputCal /* rowSpan={20} */ disabled={true} value={values.firstName}/>
+            <Row> 
+              <Col>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', values.firstName = "")}>
+                  <Num>C</Num>
+                </ButtonCal>
+                <ButtonCal transparent  onPress={()=> setFieldValue('firstName', `${values.firstName}8`)}>
+                  <Opera>DEL</Opera>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}%`)}>
+                  <Opera>%</Opera>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}/`)}>
+                  <Opera>/</Opera>
+                </ButtonCal>
+              </Col>
             </Row>
-            <Row style={{ height: 100 }}>
-              <ButtonCal><Num>4</Num></ButtonCal>
+            <Row> 
+              <Col>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}9`)}>
+                  <Num>9</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}8`)}>
+                  <Num>8</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}7`)}>
+                  <Num>7</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}x`)}>
+                  <Opera>x</Opera>
+                </ButtonCal>
+              </Col>
             </Row>
-            <Row style={{  height: 100 }}>
-              <ButtonCal><Num>1</Num></ButtonCal>
-            </Row>
-          </Col>
 
-          <Col style={{  width:90,height: 400 }}>
-            <Row style={{ height: 100 }}>
-            <ButtonCal><Num>8</Num></ButtonCal>
+            <Row>
+              <Col>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}6`)}>
+                  <Num>6</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}5`)}>
+                  <Num>5</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}4`)}>
+                  <Num>4</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}-`)}>
+                  <Opera>-</Opera>
+                </ButtonCal>
+              </Col>
             </Row>
-            <Row style={{ height: 100 }}>
-            <ButtonCal><Num>5</Num></ButtonCal>
+            <Row>
+              <Col>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}3`)}>
+                  <Num>3</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}2`)}>
+                  <Num>2</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}1`)}>
+                  <Num>1</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}+`)}>
+                  <Opera>+</Opera>
+                </ButtonCal>
+              </Col>
             </Row>
-            <Row style={{height: 100 }}>
-            <ButtonCal><Num>2</Num></ButtonCal>
+            <Row>
+              <Col>
+                <ButtonCal transparent>
+                  <Num></Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName}0`)}>
+                  <Num>0</Num>
+                </ButtonCal>
+                <ButtonCal transparent onPress={()=> setFieldValue('firstName', `${values.firstName},`)}>
+                  <Num>,</Num>
+                </ButtonCal>
+                <ButtonEqual onPress={()=> setFieldValue('firstName', `${values.firstName}=`)}>
+                  <NumEQual>=</NumEQual>
+                </ButtonEqual>
+              </Col>
             </Row>
-            <Row style={{ height: 100 }}>
-            <ButtonCal><Num>0</Num></ButtonCal>
-            </Row>
-          </Col>
-
-          <Col style={{ width:100, height: 400 }}>
-            <Row style={{height: 100 }}>
-            <ButtonCal><Num>9</Num></ButtonCal>
-            </Row>
-            <Row style={{ height: 100 }}>
-            <ButtonCal><Num>6</Num></ButtonCal>
-            </Row>
-            <Row style={{  height: 100 }}>
-            <ButtonCal><Num>3</Num></ButtonCal>
-            </Row>
-            <Row style={{  height: 100 }}>
-            <ButtonCal><Num>,</Num></ButtonCal>
-            </Row>
-          </Col>
-
-          <Col style={{ width:100, height: 400 }}>
-            <Row style={{height: 100 }}>
-            <ButtonCal><Num>x</Num></ButtonCal>
-            </Row>
-            <Row style={{ height: 100 }}>
-            <ButtonCal><Num>-</Num></ButtonCal>
-            </Row>
-            <Row style={{ width:10, height: 100 }}>
-            <ButtonCal><Num>+</Num></ButtonCal>
-            </Row>
-            <Row style={{  height: 100 }}>
-            <ButtonEqual><NumEQual>=</NumEQual></ButtonEqual>
-            </Row>
-          </Col>
-          
-        </Grid>
           </View>
         )}}
       </Formik>
