@@ -26,17 +26,29 @@ export const Title = styled(Text)`
 
 export const InputCal = styled(Textarea)`
     flex: 3;
-    margin: 7px;
+    margin: 10px;
     background-color: #fff;
-    color: black;
-    border-width: 1px;
+    color: #37474f;
     border:none;
     font-size: 50px;
     text-align: right;
     border-color: #fff;
-    border-bottom-color: orange;
+    border-bottom-color: #f0f0f0;
     border-width: 1px;
 `;
+export const InputCalEqual = styled(Textarea)`
+    flex: 3;
+    margin: 10px;
+    background-color: #fff;
+    color: #37474f;
+    border:none;
+    font-size: 50px;
+    text-align: right;
+    border-color: #fff;
+    border-bottom-color: #f0f0f0;
+    border-width: 1px;
+`;
+
 
 export const ButtonCal = styled(Button)`
     width: ${widthButtonSize};
@@ -53,9 +65,8 @@ export const ButtonEqual = styled(Button)`
     flex: 1;
     height: 80%;
     justify-content: center;
-    border-radius: 10px;
-    background-color: orange;
-    padding: 10px;
+    border-radius: 100px;
+    background-color:#ff7043 ;
     margin-left: 10px;
     margin-right: 10px;
 `;
@@ -65,7 +76,7 @@ export const Num = styled(Text)`
     font-size: 25px;
 `;
 export const Opera = styled(Text)`
-    color: orange;
+    color: #ff7043;
     font-size: 25px;
 `;
 
