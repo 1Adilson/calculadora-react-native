@@ -1,7 +1,17 @@
 import { StatusBar } from 'expo-status-bar';
 import Constants from 'expo-constants';
 import React from 'react';
-import {ViewYellow, InputCal, ButtonCal, Num,NumEQual, ButtonEqual,Opera, Title, Row, Col,InputCalEqual  } from "./style"
+import {
+  ViewYellow, 
+  InputCal, 
+  ButtonCal, 
+  Num,
+  NumEQual, 
+  ButtonEqual,
+  Opera, 
+  Row, 
+  Col,
+} from "./style"
 import { Formik } from 'formik';
 import { Icon, View } from 'native-base';
 
@@ -9,7 +19,6 @@ export default function App() {
   return (
     <ViewYellow style={{paddingTop: Constants.statusBarHeight}}>
       <StatusBar  style="auto" />
-      <Icon name="menu"/>
       <Formik
         initialValues={{
           numCal: "",
@@ -23,18 +32,17 @@ export default function App() {
         >
         {({ values,  setFieldValue}: any) =>{
           console.log("values", values);
-          
+          // console.log("TEST::::",Object.keys(values))      
           return (
             <View style={{flex: 1}}>
-            <InputCal  disabled={true} value={values.numCal}/>
-            {/* <InputCalEqual  disabled={true} value={values}/> */}
+              <InputCal  disabled={true} value={values.numCal.toString().replace("*","x").replace(".",",")}/>
             <Row> 
               <Col>
                 <ButtonCal transparent onPress={()=> setFieldValue('numCal', "")}>
                   <Opera>c</Opera>
                 </ButtonCal>
                 <ButtonCal transparent  onPress={()=> {
-                  setFieldValue('numCal', `${values.numCal }8`)
+                  setFieldValue('numCal', `${substring(values.numCal)}`)
                 }}>
                   <Opera>del</Opera>
                 </ButtonCal>
@@ -107,7 +115,7 @@ export default function App() {
                 </ButtonCal>
                 <ButtonEqual onPress={()=> {
                   const selectLastCal = values.numCal.toString().split('=');
-                  setFieldValue('numCal', `${values.numCal}\n=${valid(selectLastCal[selectLastCal.length - 1])}`);
+                  setFieldValue('numCal', `${values.numCal}\n=${valid(selectLastCal[selectLastCal.length - 1]).toString().replace(".",",").replace("*","x")}`);
                  }}>
                   <NumEQual>=</NumEQual>
                 </ButtonEqual>
@@ -123,6 +131,10 @@ export default function App() {
 function isCall(value: string): boolean {
   return /\s*([-+]?)(\d+)(?:\s*([-+*\/])\s*((?:\s[-+])?\d+)\s*)+$/.test(value);
 }
+function substring(value:string){
+  return value.slice(0, -1);    
+   
+}   
 
 function valid(value: string) : string {
   if (isCall(value.toString())) {

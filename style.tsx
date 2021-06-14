@@ -1,5 +1,5 @@
 
-import { Button, Textarea } from "native-base";
+import { Button, Icon, Textarea } from "native-base";
 import {View, Text, Dimensions} from 'react-native';
 import styled from "styled-components/native";
 
@@ -18,25 +18,8 @@ export const ViewYellow = styled(View)`
     flex: 1;
 `;
 
-export const Title = styled(Text)`
-    color: orange;
-    text-align: center;
-    font-size: 30px;
-`;
 
 export const InputCal = styled(Textarea)`
-    flex: 3;
-    margin: 10px;
-    background-color: #fff;
-    color: #37474f;
-    border:none;
-    font-size: 50px;
-    text-align: right;
-    border-color: #fff;
-    border-bottom-color: #f0f0f0;
-    border-width: 1px;
-`;
-export const InputCalEqual = styled(Textarea)`
     flex: 3;
     margin: 10px;
     background-color: #fff;
