@@ -13,16 +13,21 @@ import {
   Col,
 } from "./style"
 import { Formik } from 'formik';
-import { Icon, View } from 'native-base';
+import { Text, View } from 'native-base';
+import { Icon } from '@material-ui/core';
+import { FontAwesome } from "@expo/vector-icons";
+import * as Font from "expo-font";
 
 export default function App() {
   return (
+    
     <ViewYellow style={{paddingTop: Constants.statusBarHeight}}>
-      <StatusBar  style="auto" />
+      <StatusBar style="light" backgroundColor="#1F1F1F" />
       <Formik
         initialValues={{
-          numCal: "",
+          numCal: "\n\n\n\n\n",
         }}
+        values={("\n\n\n\n\n")}
         onSubmit={(
           values: any,
           ) => {
@@ -31,20 +36,19 @@ export default function App() {
         }
         >
         {({ values,  setFieldValue}: any) =>{
-          console.log("values", values);
-          // console.log("TEST::::",Object.keys(values))      
+          console.log("values", values);     
           return (
             <View style={{flex: 1}}>
               <InputCal  disabled={true} value={values.numCal.toString().replace("*","x").replace(".",",")}/>
             <Row> 
               <Col>
-                <ButtonCal transparent onPress={()=> setFieldValue('numCal', "")}>
+                <ButtonCal transparent onPress={()=> setFieldValue('numCal', "\n\n\n\n\n")}>
                   <Opera>c</Opera>
                 </ButtonCal>
                 <ButtonCal transparent  onPress={()=> {
                   setFieldValue('numCal', `${substring(values.numCal)}`)
                 }}>
-                  <Opera>del</Opera>
+                  <Opera>Del</Opera>
                 </ButtonCal>
                 <ButtonCal transparent onPress={()=> setFieldValue('numCal', `${values.numCal}%`)}>
                   <Opera>%</Opera>
@@ -125,7 +129,7 @@ export default function App() {
         )}}
       </Formik>
     </ViewYellow>
-  );
+    );
 }
 
 function isCall(value: string): boolean {

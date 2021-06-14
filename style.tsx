@@ -1,5 +1,5 @@
 
-import { Button, Icon, Textarea } from "native-base";
+import { Button, Textarea } from "native-base";
 import {View, Text, Dimensions} from 'react-native';
 import styled from "styled-components/native";
 
@@ -21,15 +21,12 @@ export const ViewYellow = styled(View)`
 
 export const InputCal = styled(Textarea)`
     flex: 3;
-    margin: 10px;
-    background-color: #fff;
-    color: #37474f;
-    border:none;
+    background-color:  #1F1F1F;
+    color: #fff;
     font-size: 50px;
     text-align: right;
-    border-color: #fff;
-    border-bottom-color: #f0f0f0;
-    border-width: 1px;
+    border:#1F1F1F;
+
 `;
 
 
@@ -38,7 +35,7 @@ export const ButtonCal = styled(Button)`
     height: ${heightButtonSize};
     justify-content: center;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #1F1F1F;
     padding: 15px;
     margin-left: 10px;
     margin-right: 10px;
@@ -46,20 +43,19 @@ export const ButtonCal = styled(Button)`
 
 export const ButtonEqual = styled(Button)`
     flex: 1;
-    height: 80%;
+    height: 100%;
     justify-content: center;
-    border-radius: 100px;
-    background-color:#ff7043 ;
-    margin-left: 10px;
-    margin-right: 10px;
+    background-color:#f22613;
+    margin-left: 1px;
+    margin-right: 0px;
 `;
 
 export const Num = styled(Text)`
-    color: black;
+    color: #fff;
     font-size: 25px;
 `;
 export const Opera = styled(Text)`
-    color: #ff7043;
+    color: #22a7f0;
     font-size: 25px;
 `;
 
@@ -70,7 +66,7 @@ export const NumEQual = styled(Text)`
 
 export const Row = styled(View)`
     flex: 1;
-    background-color: #fff;
+    background-color: #1F1F1F;
     position: relative;
     flex-direction: column;
 `;
