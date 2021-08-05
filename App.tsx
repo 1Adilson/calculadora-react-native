@@ -13,10 +13,8 @@ import {
   Col,
 } from "./style"
 import { Formik } from 'formik';
-import { Text, View } from 'native-base';
-import { Icon } from '@material-ui/core';
-import { FontAwesome } from "@expo/vector-icons";
-import * as Font from "expo-font";
+import { View } from 'native-base';
+
 
 export default function App() {
   return (
@@ -36,7 +34,6 @@ export default function App() {
         }
         >
         {({ values,  setFieldValue}: any) =>{
-          console.log("values", values);     
           return (
             <View style={{flex: 1}}>
               <InputCal  disabled={true} value={values.numCal.toString().replace("*","x").replace(".",",")}/>

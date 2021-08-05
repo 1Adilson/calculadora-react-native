@@ -18,7 +18,6 @@ export const ViewYellow = styled(View)`
     flex: 1;
 `;
 
-
 export const InputCal = styled(Textarea)`
     flex: 3;
     background-color:  #1F1F1F;
@@ -28,7 +27,6 @@ export const InputCal = styled(Textarea)`
     border:#1F1F1F;
 
 `;
-
 
 export const ButtonCal = styled(Button)`
     width: ${widthButtonSize};

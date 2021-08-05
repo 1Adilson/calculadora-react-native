@@ -1,20 +1,3 @@
-adb logcat *:I
-adb logcat | grep cache
-
-expo r -c
-expo r -c --no-dev --minify
-
-Como receber uma atualização do WebCal Mobile?
- - Está conectado a internet.
- - Abrir o aplicativo, para baixar a nova versão.
- - Fechar o aplicativo, para aplicar a nova versão.
- - Caso não tenha aplicado tente novamente.
- - Abrir o aplicativo.
- - Fechar o aplicativo.
-
-Caso não funcione entre em contato para suporte.
-
-
 get ip
 ip a
 export env REACT_NATIVE_PACKAGER_HOSTNAME=ip
